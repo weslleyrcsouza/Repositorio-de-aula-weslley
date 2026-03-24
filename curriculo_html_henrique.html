@@ -1,37 +1,124 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currículo - Rafael Henrique Martins</title>
 
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
+            background: linear-gradient(135deg, #e6e6e6, #f5f5f5);
             font-family: Arial, Helvetica, sans-serif;
-            margin: 40px;
-            line-height: 1.6;
             color: #333;
+            line-height: 1.6;
+            padding: 20px;
         }
-
+        
+        /* Folha principal */
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+        
+        /* Nome */
         h1 {
-            color: #1f4e79;
+            text-align: center;
+            color: #791f1f;
+            font-size: 28px;
+            margin-bottom: 5px;
         }
-
-        h2 {
-            color: #1f4e79;
-            border-bottom: 2px solid #1f4e79;
-            padding-bottom: 5px;
+        
+        /* Subtitulo */
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
         }
-
-        .section {
+        
+        /* Informações */
+        .info {
+            text-align: center;
+            background: #fafafa;
+            padding: 15px;
+            border-radius: 12px;
             margin-bottom: 25px;
         }
-
-        ul {
-            margin-top: 5px;
+        
+        /* Seções */
+        .section {
+            background: #fcfcfc;
+            padding: 18px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid #791f1f;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.04);
         }
-
-    </style>
+        
+        /* Títulos */
+        h2 {
+            color: #791f1f;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        /* Listas */
+        ul {
+            margin-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 6px;
+        }
+        
+        /* RESPONSIVO PARA CELULAR */
+        @media (max-width: 768px) {
+        
+            body {
+                padding: 10px;
+            }
+        
+            .container {
+                padding: 20px;
+                border-radius: 15px;
+            }
+        
+            h1 {
+                font-size: 24px;
+            }
+        
+            h2 {
+                font-size: 18px;
+            }
+        
+            .section {
+                padding: 15px;
+            }
+        }
+        
+        /* Impressão */
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+        
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+        }
+        </style>
 </head>
 
 <body>
@@ -47,7 +134,7 @@
     <div class="section">
         <h2>Objetivo</h2>
         <p>
-            Atuar na área de tecnologia da informação, buscando desenvolver habilidades técnicas e 
+            Atuar na área de tecnologia da informação, buscando desenvolver habilidades técnicas e
             contribuir com soluções inovadoras, crescimento profissional e desenvolvimento tecnológico da empresa.
         </p>
     </div>
@@ -55,8 +142,8 @@
     <div class="section">
         <h2>Resumo Profissional</h2>
         <p>
-            Estudante da área de tecnologia com grande interesse em desenvolvimento de software, 
-            análise de sistemas e infraestrutura de TI. Possui conhecimento em programação, banco de dados 
+            Estudante da área de tecnologia com grande interesse em desenvolvimento de software,
+            análise de sistemas e infraestrutura de TI. Possui conhecimento em programação, banco de dados
             e desenvolvimento web, com facilidade de aprendizado e trabalho em equipe.
         </p>
     </div>
@@ -66,13 +153,13 @@
 
         <p><strong>Curso Técnico em Desenvolvimento de Sistemas</strong></p>
         <p>Instituição: Escola Técnica Estadual</p>
-        <p>Período: 2025 - Em andamento</p>
+        <p>Período: 2026 - Em andamento</p>
 
         <br>
 
         <p><strong>Ensino Médio Completo</strong></p>
-        <p>Instituição: Escola Estadual</p>
-        <p>Conclusão: 2024</p>
+        <p>Instituição: Escola Particular</p>
+        <p>Conclusão: 2025</p>
 
     </div>
 
@@ -100,6 +187,8 @@
             <li>Banco de Dados Básico</li>
             <li>Git e GitHub</li>
             <li>Informática Avançada</li>
+            <li>Inglês</li>
+            <li>Pacote Office</li>
         </ul>
     </div>
 
@@ -120,7 +209,10 @@
         <h2>Idiomas</h2>
         <ul>
             <li>Português - Nativo</li>
-            <li>Inglês - Básico</li>
+            <li>Inglês - Avaçado</li>
+            <li>Mandarim - Básico</li>
+            <li>Espanhol - Intermediário</li>
+            <li>Frânces - Básico</li>
         </ul>
     </div>
 
@@ -132,8 +224,10 @@
             <li>Organização</li>
             <li>Proatividade</li>
             <li>Boa comunicação</li>
+            <li>Responsabilidade</li>
         </ul>
     </div>
 
 </body>
+
 </html>
