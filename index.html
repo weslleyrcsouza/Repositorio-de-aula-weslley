@@ -1,21 +1,163 @@
 <!DOCTYPE html>
-<html lang="pt-br"> 
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurante</title>
+  <title>CSS Template</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Style the header */
+    header {
+      background-color: #666;
+      padding: 30px;
+      text-align: center;
+      font-size: 35px;
+      color: white;
+    }
+
+    /* Create two columns/boxes that floats next to each other */
+    nav {
+      float: left;
+      width: 30%;
+      height: 560px;
+      background: #ccc;
+      padding: 20px;
+    }
+
+    /* Style the list inside the menu */
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav li {
+      margin-bottom: 14px;
+    }
+
+    nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #111;
+      font-weight: bold;
+      background: #f8f8f8;
+      border: 1px solid #999;
+      border-radius: 8px;
+      padding: 8px;
+    }
+
+    nav a:hover {
+      background: #ececec;
+    }
+
+    .menu-thumb {
+      width: 52px;
+      height: 52px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid #666;
+    }
+
+    article {
+      float: left;
+      padding: 20px;
+      width: 70%;
+      background-color: #f1f1f1;
+      height: 560px;
+    }
+
+    #modelo-img {
+      max-width: 100%;
+      width: 460px;
+      height: auto;
+      border: 2px solid #777;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    /* Clear floats after the columns */
+    section::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Style the footer */
+    footer {
+      background-color: #777;
+      padding: 10px;
+      text-align: center;
+      color: white;
+    }
+
+    /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+    @media (max-width: 600px) {
+      nav,
+      article {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!--A tag <nav> serve para criar um menu-->
+ <header>
+    <h2>iPhone 17 Lineup</h2>
+  </header>
+
+  <section>
     <nav>
-        <!--A tag <a href> serve para criar o link para a página principal(sobre) e contato-->
-        <a href="Sobre.html">Sobre</a>
-        <a href="contato.html">Contato</a>
+      <ul>
+        <li>
+          <a href="#" onclick="mostrarModelo('iPhone 17', 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Black_iPhone_17.jpg/640px-Black_iPhone_17.jpg'); return false;">
+            <img class="menu-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Black_iPhone_17.jpg/120px-Black_iPhone_17.jpg" alt="iPhone 17">
+            iPhone 17
+          </a>
+        </li>
+        <li>
+          <a href="#" onclick="mostrarModelo('iPhone 17 Pro', 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/IPhone_17_Pro_%28cropped%29.jpg/640px-IPhone_17_Pro_%28cropped%29.jpg'); return false;">
+            <img class="menu-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/IPhone_17_Pro_%28cropped%29.jpg/120px-IPhone_17_Pro_%28cropped%29.jpg" alt="iPhone 17 Pro">
+            iPhone 17 Pro
+          </a>
+        </li>
+        <li>
+          <a href="#" onclick="mostrarModelo('iPhone 17 Pro Max', 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Deep_Blue_iPhone_17_Pro_Max_%28cropped%29.jpg/640px-Deep_Blue_iPhone_17_Pro_Max_%28cropped%29.jpg'); return false;">
+            <img class="menu-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Deep_Blue_iPhone_17_Pro_Max_%28cropped%29.jpg/120px-Deep_Blue_iPhone_17_Pro_Max_%28cropped%29.jpg" alt="iPhone 17 Pro Max">
+            iPhone 17 Pro Max
+          </a>
+        </li>
+      </ul>
     </nav>
-    <!--Criei um parágrafo-->
-    <h1><em>Bem vindo ao restaurante Italiano</em></h1>
-    <p>Escolha nossas melhores massas</p>
-    <img src="C:\Users\CAMARGO\Desktop\Repositorio-de-aula-weslley\Imagens\massa1.jpg">
-    <img src="..\Repositorio-de-aula-weslley\Imagens\massa3.jpg">
-</body> 
+
+    <article>
+      <h1 id="modelo-titulo">iPhone 17</h1>
+      <p><strong>iPhone 17:</strong> Standard model focused on everyday performance, good battery life, and lower cost than Pro models.</p>
+      <p><strong>iPhone 17 Pro:</strong> Advanced model with premium materials and stronger camera resources for creators.</p>
+      <p><strong>iPhone 17 Pro Max:</strong> Biggest model, with larger display and battery, designed for users who want maximum screen and endurance.</p>
+      <img id="modelo-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Black_iPhone_17.jpg/640px-Black_iPhone_17.jpg" alt="iPhone 17">
+    </article>
+  </section>
+
+  <footer>
+    <p>Footer</p>
+  </footer>
+
+  <script>
+    function mostrarModelo(nome, imagem) {
+      document.getElementById('modelo-titulo').textContent = nome;
+      document.getElementById('modelo-img').src = imagem;
+      document.getElementById('modelo-img').alt = nome;
+    }
+  </script>
+
+</body>
 </html>
