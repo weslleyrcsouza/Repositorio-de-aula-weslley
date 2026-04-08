@@ -1,163 +1,862 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-  <title>CSS Template</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careca Luxury | Marcas de Grife</title>
+  <meta
+    name="description"
+    content="Site claro e elegante sobre marcas de grife, com destaque para Chanel, Dior, Prada, Gucci e Louis Vuitton."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;700;800&display=swap"
+    rel="stylesheet"
+  >
   <style>
+    :root {
+      --bg: #fcf8f1;
+      --surface: rgba(255, 255, 255, 0.82);
+      --line: rgba(110, 87, 63, 0.18);
+      --text: #1d1713;
+      --muted: #6f6052;
+      --accent: #b99257;
+      --accent-strong: #8f6a38;
+      --shadow: 0 24px 60px rgba(72, 51, 31, 0.12);
+      --radius-xl: 30px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --container: 1180px;
+    }
+
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    /* Style the header */
-    header {
-      background-color: #666;
-      padding: 30px;
-      text-align: center;
-      font-size: 35px;
-      color: white;
-    }
-
-    /* Create two columns/boxes that floats next to each other */
-    nav {
-      float: left;
-      width: 30%;
-      height: 560px;
-      background: #ccc;
-      padding: 20px;
-    }
-
-    /* Style the list inside the menu */
-    nav ul {
-      list-style-type: none;
-      padding: 0;
       margin: 0;
+      min-height: 100vh;
+      font-family: "Manrope", "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(185, 146, 87, 0.18), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(228, 208, 180, 0.28), transparent 22%),
+        linear-gradient(180deg, #fffdf9 0%, #f7f0e6 55%, #f2e8dc 100%);
     }
 
-    nav li {
-      margin-bottom: 14px;
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.35;
+      background-image:
+        linear-gradient(rgba(185, 146, 87, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(185, 146, 87, 0.08) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(circle at center, black 45%, transparent 90%);
     }
 
-    nav a {
+    .page-shell {
+      width: min(calc(100% - 32px), var(--container));
+      margin: 0 auto;
+      padding: 24px 0 48px;
+    }
+
+    .topbar,
+    .hero,
+    .showcase,
+    .highlights,
+    .essence {
+      background: var(--surface);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 16px;
+      z-index: 10;
       display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 20px;
+      border-radius: 999px;
+    }
+
+    .brand-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-lockup__symbol {
+      display: grid;
+      place-items: center;
+      width: 50px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f5dfbf, #c79f66);
+      color: #fff;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.16em;
+    }
+
+    .topnav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .topnav a {
       text-decoration: none;
-      color: #111;
-      font-weight: bold;
-      background: #f8f8f8;
-      border: 1px solid #999;
-      border-radius: 8px;
-      padding: 8px;
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
-    nav a:hover {
-      background: #ececec;
+    .topnav a:hover,
+    .topnav a:focus-visible {
+      color: var(--text);
     }
 
-    .menu-thumb {
-      width: 52px;
-      height: 52px;
-      object-fit: cover;
-      border-radius: 6px;
-      border: 1px solid #666;
+    main {
+      display: grid;
+      gap: 26px;
+      margin-top: 26px;
     }
 
-    article {
-      float: left;
+    .hero,
+    .showcase,
+    .highlights,
+    .essence {
+      border-radius: var(--radius-xl);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      padding: 34px;
+    }
+
+    .hero__copy h2,
+    .brand-stage__content h2,
+    .section-heading h2,
+    h1,
+    h3 {
+      margin: 0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 600;
+      line-height: 0.95;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 2vw, 2.4rem);
+    }
+
+    .hero__copy h2,
+    .brand-stage__content h2,
+    .section-heading h2 {
+      font-size: clamp(2.5rem, 5vw, 4.6rem);
+    }
+
+    h3 {
+      font-size: clamp(2.1rem, 3vw, 3rem);
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .eyebrow,
+    .hero-note span,
+    .hero-tile span,
+    .brand-option__badge,
+    .info-grid span,
+    .visual-card__label {
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.74rem;
+      font-weight: 800;
+    }
+
+    .eyebrow {
+      margin-bottom: 14px;
+      color: var(--accent-strong);
+    }
+
+    .hero__copy p {
+      max-width: 56ch;
+      margin-top: 18px;
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible,
+    .brand-option:hover,
+    .brand-option:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .button--primary {
+      background: linear-gradient(135deg, #d3ab73, #ae8348);
+      color: #fffdf9;
+      box-shadow: 0 14px 30px rgba(185, 146, 87, 0.28);
+    }
+
+    .button--ghost {
+      background: rgba(255, 255, 255, 0.7);
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .hero__panel {
+      display: grid;
+      gap: 16px;
+    }
+
+    .hero-note,
+    .hero-tile,
+    .brand-option,
+    .brand-stage,
+    .highlights article,
+    .essence-card {
+      border: 1px solid var(--line);
+    }
+
+    .hero-note {
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(135deg, rgba(255, 250, 244, 0.94), rgba(244, 234, 223, 0.96)),
+        linear-gradient(180deg, rgba(185, 146, 87, 0.08), transparent);
+    }
+
+    .hero-note strong,
+    .hero-tile strong,
+    .brand-option strong,
+    .info-grid strong {
+      display: block;
+      color: var(--text);
+    }
+
+    .hero-note strong {
+      margin: 8px 0 10px;
+      font-size: 1.6rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .hero-tile {
       padding: 20px;
-      width: 70%;
-      background-color: #f1f1f1;
-      height: 560px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.72);
     }
 
-    #modelo-img {
-      max-width: 100%;
-      width: 460px;
-      height: auto;
-      border: 2px solid #777;
-      border-radius: 8px;
-      margin-top: 10px;
+    .hero-tile strong {
+      margin-top: 8px;
+      font-size: 1.2rem;
     }
 
-    /* Clear floats after the columns */
-    section::after {
-      content: "";
-      display: table;
-      clear: both;
+    .showcase {
+      display: grid;
+      grid-template-columns: 330px 1fr;
+      gap: 22px;
+      padding: 26px;
     }
 
-    /* Style the footer */
-    footer {
-      background-color: #777;
-      padding: 10px;
-      text-align: center;
-      color: white;
+    .brand-menu {
+      display: grid;
+      gap: 12px;
+      align-content: start;
     }
 
-    /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
-    @media (max-width: 600px) {
-      nav,
-      article {
-        width: 100%;
-        height: auto;
+    .brand-option {
+      padding: 18px;
+      text-align: left;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.74);
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .brand-option.is-active {
+      background: linear-gradient(135deg, rgba(255, 250, 244, 1), rgba(242, 232, 220, 1));
+      border-color: rgba(185, 146, 87, 0.45);
+      box-shadow: 0 18px 36px rgba(185, 146, 87, 0.16);
+    }
+
+    .brand-option strong {
+      margin: 6px 0 6px;
+      font-size: 1.45rem;
+    }
+
+    .brand-option small {
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .brand-stage {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.9fr) 1.1fr;
+      gap: 24px;
+      padding: 24px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.95), transparent 30%),
+        linear-gradient(180deg, rgba(255, 250, 244, 0.98), rgba(244, 235, 226, 0.94));
+    }
+
+    .brand-stage__visual {
+      display: grid;
+      gap: 14px;
+    }
+
+    .visual-card {
+      min-height: 320px;
+      padding: 28px;
+      border-radius: 28px;
+      background:
+        linear-gradient(160deg, rgba(255, 255, 255, 0.94), rgba(240, 231, 221, 0.92)),
+        radial-gradient(circle at top left, rgba(185, 146, 87, 0.18), transparent 34%);
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+    }
+
+    .visual-card__label {
+      margin-bottom: 12px;
+      color: var(--accent-strong);
+    }
+
+    .visual-card__tag {
+      margin-top: 12px;
+      max-width: 28ch;
+    }
+
+    .visual-swatches {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .visual-swatches span {
+      display: block;
+      height: 70px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+    }
+
+    .brand-stage__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .lead {
+      margin-top: 18px;
+      max-width: 58ch;
+      font-size: 1.03rem;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .info-grid article {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .info-grid strong {
+      margin-top: 8px;
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
+    .feature-list {
+      margin: 24px 0 0;
+      padding-left: 20px;
+    }
+
+    .feature-list li {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .feature-list li + li {
+      margin-top: 8px;
+    }
+
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      padding: 22px;
+    }
+
+    .highlights article {
+      padding: 22px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .highlights strong {
+      display: block;
+      margin-bottom: 8px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+    }
+
+    .essence {
+      padding: 30px;
+    }
+
+    .section-heading {
+      max-width: 760px;
+    }
+
+    .essence-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .essence-card {
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .essence-card h3 {
+      margin-bottom: 12px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1024px) {
+      .hero,
+      .showcase,
+      .brand-stage,
+      .essence-grid,
+      .highlights {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        border-radius: 28px;
+      }
+
+      .highlights {
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page-shell {
+        width: min(calc(100% - 20px), var(--container));
+        padding-top: 14px;
+      }
+
+      .topbar,
+      .hero,
+      .showcase,
+      .essence {
+        padding: 20px;
+      }
+
+      .topbar {
+        position: static;
+        align-items: flex-start;
+        border-radius: 24px;
+      }
+
+      .hero-grid,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topnav {
+        gap: 12px;
       }
     }
   </style>
 </head>
 <body>
- <header>
-    <h2>iPhone 17 Lineup</h2>
-  </header>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="brand-lockup">
+        <span class="brand-lockup__symbol">CL</span>
+        <div>
+          <p class="eyebrow">Editorial de luxo</p>
+          <h1>Careca Luxury</h1>
+        </div>
+      </div>
 
-  <section>
-    <nav>
-      <ul>
-        <li>
-          <a href="#" onclick="mostrarModelo('iPhone 17', 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Black_iPhone_17.jpg/640px-Black_iPhone_17.jpg'); return false;">
-            <img class="menu-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Black_iPhone_17.jpg/120px-Black_iPhone_17.jpg" alt="iPhone 17">
-            iPhone 17
-          </a>
-        </li>
-        <li>
-          <a href="#" onclick="mostrarModelo('iPhone 17 Pro', 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/IPhone_17_Pro_%28cropped%29.jpg/640px-IPhone_17_Pro_%28cropped%29.jpg'); return false;">
-            <img class="menu-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/IPhone_17_Pro_%28cropped%29.jpg/120px-IPhone_17_Pro_%28cropped%29.jpg" alt="iPhone 17 Pro">
-            iPhone 17 Pro
-          </a>
-        </li>
-        <li>
-          <a href="#" onclick="mostrarModelo('iPhone 17 Pro Max', 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Deep_Blue_iPhone_17_Pro_Max_%28cropped%29.jpg/640px-Deep_Blue_iPhone_17_Pro_Max_%28cropped%29.jpg'); return false;">
-            <img class="menu-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Deep_Blue_iPhone_17_Pro_Max_%28cropped%29.jpg/120px-Deep_Blue_iPhone_17_Pro_Max_%28cropped%29.jpg" alt="iPhone 17 Pro Max">
-            iPhone 17 Pro Max
-          </a>
-        </li>
-      </ul>
-    </nav>
+      <nav class="topnav" aria-label="Navegacao principal">
+        <a href="#marcas">Marcas</a>
+        <a href="#destaques">Destaques</a>
+        <a href="#essência">Essência</a>
+      </nav>
+    </header>
 
-    <article>
-      <h1 id="modelo-titulo">iPhone 17</h1>
-      <p><strong>iPhone 17:</strong> Standard model focused on everyday performance, good battery life, and lower cost than Pro models.</p>
-      <p><strong>iPhone 17 Pro:</strong> Advanced model with premium materials and stronger camera resources for creators.</p>
-      <p><strong>iPhone 17 Pro Max:</strong> Biggest model, with larger display and battery, designed for users who want maximum screen and endurance.</p>
-      <img id="modelo-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Black_iPhone_17.jpg/640px-Black_iPhone_17.jpg" alt="iPhone 17">
-    </article>
-  </section>
+    <main>
+      <section class="hero reveal">
+        <div class="hero__copy">
+          <p class="eyebrow">Tema claro e sofisticado</p>
+          <h2>Marcas de grife em uma vitrine mais elegante, leve e atual.</h2>
+          <p>
+            O site agora deixa para trás o tema de smartphone e passa a apresentar
+            o universo do luxo com uma linguagem visual clara, refinada e responsiva.
+          </p>
 
-  <footer>
-    <p>Footer</p>
-  </footer>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#marcas">Explorar marcas</a>
+            <a class="button button--ghost" href="#essência">Ver conceito</a>
+          </div>
+        </div>
+
+        <div class="hero__panel">
+          <article class="hero-note">
+            <span>Curadoria</span>
+            <strong>5 casas icônicas</strong>
+            <p>Chanel, Dior, Gucci, Prada e Louis Vuitton em uma apresentação premium.</p>
+          </article>
+
+          <div class="hero-grid">
+            <article class="hero-tile">
+              <span>Estilo</span>
+              <strong>Alta-costura</strong>
+            </article>
+            <article class="hero-tile">
+              <span>Valor</span>
+              <strong>Herança visual</strong>
+            </article>
+            <article class="hero-tile">
+              <span>Luxo</span>
+              <strong>Materiais nobres</strong>
+            </article>
+            <article class="hero-tile">
+              <span>Futuro</span>
+              <strong>Desejo contemporâneo</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="showcase" id="marcas">
+        <nav class="brand-menu reveal" aria-label="Seletor de marcas">
+          <p class="eyebrow">Selecione uma marca</p>
+          <button class="brand-option is-active" type="button" data-brand="chanel">
+            <span class="brand-option__badge">Paris</span>
+            <strong>Chanel</strong>
+            <small>Minimalismo, tweed e assinatura classica.</small>
+          </button>
+
+          <button class="brand-option" type="button" data-brand="dior">
+            <span class="brand-option__badge">Paris</span>
+            <strong>Dior</strong>
+            <small>Silhueta marcante e glamour de alta-costura.</small>
+          </button>
+
+          <button class="brand-option" type="button" data-brand="gucci">
+            <span class="brand-option__badge">Florença</span>
+            <strong>Gucci</strong>
+            <small>Maximalismo, energia pop e luxo italiano.</small>
+          </button>
+
+          <button class="brand-option" type="button" data-brand="prada">
+            <span class="brand-option__badge">Milão</span>
+            <strong>Prada</strong>
+            <small>Intelectual, moderna e sempre a frente.</small>
+          </button>
+
+          <button class="brand-option" type="button" data-brand="louis-vuitton">
+            <span class="brand-option__badge">Paris</span>
+            <strong>Louis Vuitton</strong>
+            <small>Viagem, monograma e desejo global.</small>
+          </button>
+        </nav>
+
+        <article class="brand-stage reveal" id="brand-stage">
+          <div class="brand-stage__visual">
+            <div class="visual-card">
+              <p class="visual-card__label" id="spotlight-origin">Paris, 1910</p>
+              <h3 id="spotlight-title">Chanel</h3>
+              <p class="visual-card__tag" id="spotlight-tag">
+                Elegância francesa com espirito independente.
+              </p>
+            </div>
+
+            <div class="visual-swatches">
+              <span id="swatch-1"></span>
+              <span id="swatch-2"></span>
+              <span id="swatch-3"></span>
+            </div>
+          </div>
+
+          <div class="brand-stage__content">
+            <p class="eyebrow">Destaque principal</p>
+            <h2 id="spotlight-name">Chanel</h2>
+            <p class="lead" id="spotlight-description">
+              A Chanel consolidou uma ideia de luxo baseada em linhas limpas,
+              acessorios icônicos e uma elegância que atravessa gerações.
+            </p>
+
+            <div class="info-grid">
+              <article>
+                <span>Assinatura</span>
+                <strong id="spotlight-signature">Tweed, preto e branco, correntes douradas</strong>
+              </article>
+              <article>
+                <span>Destaque</span>
+                <strong id="spotlight-focus">Moda, bolsas, perfumaria e joalheria</strong>
+              </article>
+            </div>
+
+            <ul class="feature-list" id="spotlight-points">
+              <li>Visual sofisticado sem exagero.</li>
+              <li>Codigo estilistico reconhecivel de imediato.</li>
+              <li>Tradição forte com desejo contemporâneo.</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <section class="highlights reveal" id="destaques">
+        <article>
+          <strong>1854</strong>
+          <span>Inicio da Louis Vuitton</span>
+        </article>
+        <article>
+          <strong>1910</strong>
+          <span>Estreia da Chanel</span>
+        </article>
+        <article>
+          <strong>1946</strong>
+          <span>cao da Dior</span>
+        </article>
+      </section>
+
+      <section class="essence reveal" id="essencia">
+        <div class="section-heading">
+          <p class="eyebrow">Essencia do luxo</p>
+          <h2>Uma grife vale mais quando une narrativa, materia-prima e identidade.</h2>
+        </div>
+
+        <div class="essence-grid">
+          <article class="essence-card">
+            <h3>Artesanato</h3>
+            <p>Acabamento preciso, materiais premium e herança tecnica definem a qualidade.</p>
+          </article>
+
+          <article class="essence-card">
+            <h3>Imagem</h3>
+            <p>Logo, silhueta, cor e simbolos criam uma presença forte e memoravel.</p>
+          </article>
+
+          <article class="essence-card">
+            <h3>Desejo</h3>
+            <p>O luxo vive da exclusividade, da experiência e da relevancia cultural.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
 
   <script>
-    function mostrarModelo(nome, imagem) {
-      document.getElementById('modelo-titulo').textContent = nome;
-      document.getElementById('modelo-img').src = imagem;
-      document.getElementById('modelo-img').alt = nome;
-    }
-  </script>
+    const brandData = {
+      chanel: {
+        title: "Chanel",
+        origin: "Paris, 1910",
+        tag: "Elegância francesa com espirito independente.",
+        description:
+          "A Chanel consolidou uma ideia de luxo baseada em linhas limpas, acessorios icônicos e uma elegancia que atravessa gerações.",
+        signature: "Tweed, preto e branco, correntes douradas",
+        focus: "Moda, bolsas, perfumaria e joalheria",
+        points: [
+          "Visual sofisticado sem exagero.",
+          "Codigo estilístico reconhecível de imediato.",
+          "Tradição forte com desejo contemporâneo."
+        ],
+        swatches: ["#f7f2ea", "#d8c8b8", "#171412"]
+      },
+      dior: {
+        title: "Dior",
+        origin: "Paris, 1946",
+        tag: "Glamour couture e feminilidade arquitetada.",
+        description:
+          "A Dior traduz o luxo de forma teatral e refinada, com silhuetas marcantes, acabamento precioso e presença visual muito forte.",
+        signature: "Bar jacket, cintura marcada, romantismo couture",
+        focus: "Alta-costura, bolsas, beleza e joias",
+        points: [
+          "Une delicadeza e estrutura com naturalidade.",
+          "Tem uma das heranças mais elegantes de Paris.",
+          "Mantem forte conexão com o universo da alta-costura."
+        ],
+        swatches: ["#f9f1eb", "#d7b9a8", "#7c554d"]
+      },
+      gucci: {
+        title: "Gucci",
+        origin: "Florença, 1921",
+        tag: "Luxo italiano com energia ousada e pop.",
+        description:
+          "A Gucci ficou conhecida por transformar seus códigos clássicos em algo vibrante, irreverente e conectado com música, arte e cultura.",
+        signature: "Faixa verde-vermelha, horsebit e logo GG",
+        focus: "Moda, couro, acessorios e lifestyle",
+        points: [
+          "Mistura história e irreverencia com facilidade.",
+          "Possui identidade visual forte e instantânea.",
+          "Consegue parecer clássica e moderna ao mesmo tempo."
+        ],
+        swatches: ["#efe5d0", "#224638", "#8f2c2b"]
+      },
+      prada: {
+        title: "Prada",
+        origin: "Milão, 1913",
+        tag: "Intelectual, minimalista e sempre a frente.",
+        description:
+          "A Prada construiu um luxo menos óbvio, apoiado em design preciso, experimentação inteligente e uma leitura moderna de materiais e formas.",
+        signature: "Nylon de luxo, triângulo esmaltado, linhas puras",
+        focus: "Moda, bolsas, calcados e design contemporâneo",
+        points: [
+          "Tem elegancia contida e muito sofisticada.",
+          "Transforma minimalismo em desejo real.",
+          "Influência boa parte do luxo contemporâneo."
+        ],
+        swatches: ["#f3efe9", "#b7b3ad", "#1d232d"]
+      },
+      "louis-vuitton": {
+        title: "Louis Vuitton",
+        origin: "Paris, 1854",
+        tag: "Viagem, monograma e excelência artesanal.",
+        description:
+          "Da mala de viagem ao acessório de coleção, a Louis Vuitton expandiu seu legado mantendo o monograma como um dos simbolos mais fortes da moda.",
+        signature: "Canvas monogram, baus e couro trabalhado",
+        focus: "Malas, bolsas, moda, calçados e colaborações",
+        points: [
+          "Conecta herança de viagem com desejo global.",
+          "O monograma virou simbolo de reconhecimento imediato.",
+          "Tradição e cultura pop convivem com equilíbrio."
+        ],
+        swatches: ["#f5ecdf", "#9f6f45", "#5f3d2c"]
+      }
+    };
 
+    const brandButtons = document.querySelectorAll(".brand-option");
+    const spotlightName = document.querySelector("#spotlight-name");
+    const spotlightTitle = document.querySelector("#spotlight-title");
+    const spotlightOrigin = document.querySelector("#spotlight-origin");
+    const spotlightTag = document.querySelector("#spotlight-tag");
+    const spotlightDescription = document.querySelector("#spotlight-description");
+    const spotlightSignature = document.querySelector("#spotlight-signature");
+    const spotlightFocus = document.querySelector("#spotlight-focus");
+    const spotlightPoints = document.querySelector("#spotlight-points");
+    const swatch1 = document.querySelector("#swatch-1");
+    const swatch2 = document.querySelector("#swatch-2");
+    const swatch3 = document.querySelector("#swatch-3");
+
+    function renderBrand(brandKey) {
+      const brand = brandData[brandKey];
+
+      if (!brand) {
+        return;
+      }
+
+      spotlightName.textContent = brand.title;
+      spotlightTitle.textContent = brand.title;
+      spotlightOrigin.textContent = brand.origin;
+      spotlightTag.textContent = brand.tag;
+      spotlightDescription.textContent = brand.description;
+      spotlightSignature.textContent = brand.signature;
+      spotlightFocus.textContent = brand.focus;
+      spotlightPoints.innerHTML = brand.points.map((point) => `<li>${point}</li>`).join("");
+
+      [swatch1, swatch2, swatch3].forEach((swatch, index) => {
+        swatch.style.background = brand.swatches[index];
+      });
+    }
+
+    brandButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        brandButtons.forEach((item) => item.classList.remove("is-active"));
+        button.classList.add("is-active");
+        renderBrand(button.dataset.brand);
+      });
+    });
+
+    const revealItems = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    revealItems.forEach((item, index) => {
+      item.style.transitionDelay = `${Math.min(index * 70, 240)}ms`;
+      observer.observe(item);
+    });
+
+    renderBrand("chanel");
+  </script>
 </body>
 </html>
