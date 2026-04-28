@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Books</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  * {
+    box-sizing: border-box;
+    }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    }
+  
+  /* Style the header */
+  header 
+    {
+    background-color: #60a8e4;
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+    color: white;
+    }
+  
+  /* Create two columns/boxes that floats next to each other */
+  nav 
+    {
+    float: left;
+    width: 30%;
+    height: 300px; /* only for demonstration, should be removed */
+    background: #b9cfe7;
+    padding: 20px;
+    }
+  
+  /* Style the list inside the menu */
+  nav ul 
+    {
+    list-style-type: none;
+    padding: 0;
+    }
+  
+  article {
+    float: left;
+    padding: 20px;
+    width: 70%;
+    background-color: #bed8f5;
+    height: 300px; /* only for demonstration, should be removed */
+  }
+  
+  /* Clear floats after the columns */
+  section::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Style the footer */
+  footer {
+    background-color: #0c1927;
+    padding: 10px;
+    text-align: center;
+    color: white;
+  }
+  
+  /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+  @media (max-width: 600px) {
+    nav, article {
+      width: 100%;
+      height: auto;
+    }
+  }
+  </style>
+  
+
+<body>
+
+<header>
+  
+  <h2>Books</h2>
+ 
+  </header>
+
+  <section>
+    <nav>
+      <ul>
+        <li><a href="https://www.cxdelivros.com.br/resenha-powerless/">Powerless</a></li>
+        <li><a href="https://aishando.home.blog/2023/05/24/resenha-serie-estilhaca-me-tahereh-mafi/">Estilhaça-me</a></li>
+        <li><a href="https://www.balaiodebabados.com.br/2024/03/resenha-960-quarta-asa-rebecca-yarros.html">Quarta Asa</a></li>
+      </ul>
+    </nav>
+    
+    <article>
+      <h1>Kindle</h1>
+      <p>O Kindle é um leitor de livros digitais (e-reader) criado pela Amazon, projetado para proporcionar uma experiência de leitura similar ao papel.</p>
+      <p> Ele utiliza tecnologia de tela e-ink (tinta eletrônica) que não emite luz azul, reduzindo o cansaço visual e permitindo leitura sob luz solar sem reflexos.</p>
+      
+    </article>
+  </section>
+  <footer>
+    <p>Kindle</p>
+  </footer>
+  </body>
+  </html>
+  
